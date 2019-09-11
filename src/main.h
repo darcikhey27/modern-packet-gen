@@ -8,6 +8,9 @@
 
 #define DOORBELL_SOCKET "/var/run/server.sock"
 
+/*
+ * Function prototypes
+ */
 int initialize_doorbell_socket(void);
 
 #endif
