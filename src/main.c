@@ -1,16 +1,12 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <sys/epoll.h>
-#include <errno.h>
-#include <getopt.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/mman.h>
-#include <stdint.h>
 
+#include "common.h"
+#include "sys.h"
 #include "main.h"
 
 int
@@ -55,5 +51,6 @@ int
 main(int argc, char *argv[])
 {
 
+    printf("compiled!\n");
     return EXIT_SUCCESS;
 }
