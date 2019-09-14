@@ -8,6 +8,8 @@
 #include <errno.h>
 #include <string.h>
 
+#include "types.h"
+
 #define DEBUG_PRINT 0
 #define DEBUGF(fmt, rest...) \
         ({if(DEBUG_PRINT) { printf("%s():%d " fmt "\n", __FUNCTION__, __LINE__, ##rest); }})

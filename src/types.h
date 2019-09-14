@@ -1,7 +1,6 @@
 #ifndef _TYPES_H_
 #define _TYPES_H_
 
-typedef enum { FALSE, TRUE }    bool;
 typedef unsigned char           byte;
 typedef unsigned char           u8;
 typedef signed char             i8;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="bulma.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="main.js"></script>
+
+    <title>Modern Packet Gen DK</title>
+</head>
+<body class="section">
+    <div class="header">
+        <h1 class="h1">Modern Packet Generator</h1>
+    </div>
+
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <h3>L2</h3>
+                <div class="control">
+                    <label class="radio"><input type="radio" name="l2_type">Raw Ethernet</label>
+                    <label class="radio"><input type="radio" name="l2_type">LACP</label>
+                    <label class="radio"><input type="radio" name="l2_type">ARP</label>
+                </div>
+            </div>
+            <div class="column">
+                <h3>L3</h3>
+                <div class="control">
+                <label class="radio"><input type="radio" name="l3_type">IPv4</label>
+                <label class="radio"><input type="radio" name="l3_type">ICMP</label>
+                <label class="radio"><input type="radio" name="l3_type">Add more...</label>
+                </div>
+            </div>
+            <div class="column">
+                <h3>L4</h3>
+                <label class="radio"><input type="radio" name="l4_type">TCP</label>
+                <label class="radio"><input type="radio" name="l4_type">UDP</label>
+                <label class="radio"><input type="radio" name="l4_type">Add more...</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
