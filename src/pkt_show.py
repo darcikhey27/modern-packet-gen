@@ -102,7 +102,7 @@ class PktShow:
                 'ack': tcp.ack,
                 'dataofs': tcp.dataofs,
                 'reserved': tcp.reserved,
-                'flags': tcp.flags,
+                'flags': repr(tcp.flags),
                 'window': tcp.window,
                 'chksum': tcp.chksum,
                 'options': tcp.options
@@ -114,10 +114,3 @@ class PktShow:
     def udp_to_json(self):
         return "no yet"
 
-test = PktShow()
-
-print test.eth_to_json()
-print test.arp_to_json()
-print test.ip_to_json()
-print test.tcp_to_json()
-# print isinstance(capture.getvalue(), basestring)
