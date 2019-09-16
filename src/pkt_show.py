@@ -87,6 +87,9 @@ class PktShow:
 
         return ip_json
 
+    def icmp_to_json(self):
+        return "no yet"
+
     def tcp_to_json(self):
         tcp = TCP()
 
@@ -108,6 +111,8 @@ class PktShow:
 
         return tcp_json
 
+    def udp_to_json(self):
+        return "no yet"
 
 test = PktShow()
 
