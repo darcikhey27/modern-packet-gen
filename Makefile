@@ -10,8 +10,8 @@ CFLAGS        = $(FLAGS_WARN) $(FLAGS_VERSION) -g3 -O3
 SRC_DIR        = src
 OBJ_DIR        = obj
 
-modernpgC := $(addprefix $(SRC_DIR)/, main.c sys.c)
-modernpgH := $(addprefix $(SRC_DIR)/, common.h main.h pkt_conf.h sys.h types.h)
+modernpgC := $(addprefix $(SRC_DIR)/, main.c sys.c inet_api.c)
+modernpgH := $(addprefix $(SRC_DIR)/, common.h main.h inet_api.h pkt_conf.h sys.h types.h)
 modernpgO := $(addprefix $(OBJ_DIR)/, modern-pkt-gen)
 
 
