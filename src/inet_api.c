@@ -31,7 +31,6 @@ int get_sys_interfaces(char *buf)
 
     if (getifaddrs(&ifaddr) == -1) {
         LOG("getifaddrs %s", strerror(errno));
-        //perror("getifaddrs");
         return -1;
     }
 
@@ -49,7 +48,6 @@ int get_sys_interfaces(char *buf)
         strcat(buf, temp);   
     }
 
-    //printf("%s\n", string);
     freeifaddrs(ifaddr);
 
     return 1;
