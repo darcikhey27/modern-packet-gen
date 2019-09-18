@@ -7,6 +7,7 @@
 
 #include "common.h"
 #include "sys.h"
+#include "inet_api.h"
 #include "main.h"
 
 int
@@ -51,7 +52,11 @@ int
 main(int argc, char *argv[])
 {
 
+    char buf[BUFSIZ];
 
+    get_sys_interfaces(buf);
+
+    printf("buf:\n%s\n", buf);
 
     printf("compiled!\n");
     return EXIT_SUCCESS;

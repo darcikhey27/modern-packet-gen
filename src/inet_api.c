@@ -9,72 +9,48 @@
 #include <string.h>
 #include <linux/if_link.h>
 
+#include "common.h"
 #include "inet_api.h"
 
 
-        
 
-int main(int argc, char *argv[])
+/*
+ * Takes a char pointer with pre-allocated size of atleast BUFSIZ/8192 bytes
+ * Return a string with all linux interfaces names
+ */
+int get_sys_interfaces(char *buf)
 {
     struct ifaddrs *ifaddr, *ifa;
-    int family, s, n;
-    char host[NI_MAXHOST];
-    char list[20][1024];
-   
+    char temp[BUFSIZ];
+
+    /*XXX: check str len */
+    if(buf == NULL) {
+        LOG("buf is null");
+        return -1;
+    }
+
     if (getifaddrs(&ifaddr) == -1) {
-        perror("getifaddrs");
-        exit(EXIT_FAILURE);
+        LOG("getifaddrs %s", strerror(errno));
+        //perror("getifaddrs");
+        return -1;
     }
 
     /*
      * Walk through linked list, maintaining head pointer so we
      * can free list later
      */
-    for (ifa = ifaddr, n = 0; ifa != NULL; ifa = ifa->ifa_next, n++) {
-        if (ifa->ifa_addr == NULL)
+    for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
+        if (ifa->ifa_addr == NULL) {
             continue;
-
-        family = ifa->ifa_addr->sa_family;
-
-        /* 
-         * Display interface name and family (including symbolic
-         * form of the latter for the common families)
-         */
-
-        //printf("interface name: %s\n", ifa->ifa_name);
-        //strcpy(list[n], ifa->ifa_name);
-        sprintf(list[n], "%s\n", ifa->ifa_name);
+        }
         
-        /* For an AF_INET* interface address, display the address */
-
-        // if (family == AF_INET || family == AF_INET6) {
-        //     s = getnameinfo(ifa->ifa_addr,
-        //             (family == AF_INET) ? sizeof(struct sockaddr_in) :
-        //             sizeof(struct sockaddr_in6),
-        //             host, NI_MAXHOST,
-        //             NULL, 0, NI_NUMERICHOST);
-        //     if (s != 0) {
-        //         printf("getnameinfo() failed: %s\n", gai_strerror(s));
-        //         exit(EXIT_FAILURE);
-        //     }
-
-        //     printf("\t\taddress: <%s>\n", host);
-
-        // } else if (family == AF_PACKET && ifa->ifa_data != NULL) {
-        //     struct rtnl_link_stats *stats = ifa->ifa_data;
-
-        //     printf("\t\ttx_packets = %10u; rx_packets = %10u\n"
-        //             "\t\ttx_bytes   = %10u; rx_bytes   = %10u\n",
-        //             stats->tx_packets, stats->rx_packets,
-        //             stats->tx_bytes, stats->rx_bytes);
-        // }
+        /* comma separated values*/
+        sprintf(temp, "%s,", ifa->ifa_name);
+        strcat(buf, temp);   
     }
-    int i;
-    for(i = 0; i < n; i++) {
-        printf("%s", list[i]);
-    }
-    printf("\n");
-    
+
+    //printf("%s\n", string);
     freeifaddrs(ifaddr);
-    exit(EXIT_SUCCESS);
+
+    return 1;
 }
