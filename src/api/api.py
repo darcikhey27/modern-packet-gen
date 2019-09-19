@@ -1,9 +1,7 @@
 #!/usr/bin/python
 
-from flask import Flask
+from flask import Flask, render_template
 from pkt_show import PktShow
-from subprocess import call
-import os
 
 app = Flask(__name__)
 pkt_show = PktShow()
@@ -11,17 +9,7 @@ pkt_show = PktShow()
 
 @app.route("/")
 def home():
-    return "Hello World!"
-
-
-@app.route("/start")
-def start():
-    # start c lib here
-    ret = os.system("./../../obj/modern-pkt-gen")
-    if ret == 0:
-        return "<h2 class='h2'>pkt-gen started<h2>"
-    else:
-        return "pkt-gen error"
+    return render_template("index.html", message="Modern Packet Generator")
 
 
 @app.route("/l2/show/ether")
@@ -64,6 +52,9 @@ def icmp():
     return pkt_show.icmp_to_json()
 
 
+@app.route("/sys/get/interfaces_list")
+def get_interfaces_list():
+    return "intefacelist not yet implemented"
 
 if __name__ == "__main__":
     app.run()

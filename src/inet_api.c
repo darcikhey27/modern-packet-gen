@@ -82,7 +82,7 @@ tap_open(const char *name)
 }
 
 void
-get_interface_mac(int fd, u8 *mac)
+sys_get_interface_mac(int fd, u8 *mac)
 {
     struct ifreq ifr = {0};
     if(fd < 0) {

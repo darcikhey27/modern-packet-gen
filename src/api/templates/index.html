@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Modern Packet Generator v1</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			    crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+      <title>Modern Packet Generator v1</title>
   </head>
-  <body>
-    <div>
-      <p>{{ message }}</p>
+  <body class="section">
+    <div class="section">
+      <h1 class="h1">Available Interfaces</h1>
+      <div class="interface_list"></div>
     </div>
+
+    <div class="columns">
+
+        <div class="column">
+            <h2 class="h2">L2</h2>
+
+            <div class="l2_protocols"></div>
+
+        </div>
+        <div class="column">
+            <h2 class="h2">L3</h2>
+
+            <div class="l3_protocols"></div>
+
+        </div>
+        <div class="column">
+            <h2 class="h2">L4</h2>
+            <div class="l4_protocols"></div>
+        </div>
+        <div class="column">
+            <h2 class="h2">Payload</h2>
+        </div>
+    </div>
+
+
   </body>
 </html>
