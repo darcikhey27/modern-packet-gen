@@ -48,13 +48,14 @@ initialize_doorbell_socket()
     return fd;
 }
 
+
 int
 main(int argc, char *argv[])
 {
 
     char buf[BUFSIZ];
 
-    get_sys_interfaces(buf);
+    sys_get_interfaces(buf);
 
     printf("buf:\n%s\n", buf);
 
