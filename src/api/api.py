@@ -2,6 +2,8 @@
 
 from flask import Flask
 from pkt_show import PktShow
+from subprocess import call
+import os
 
 app = Flask(__name__)
 pkt_show = PktShow()
@@ -10,6 +12,16 @@ pkt_show = PktShow()
 @app.route("/")
 def home():
     return "Hello World!"
+
+
+@app.route("/start")
+def start():
+    # start c lib here
+    ret = os.system("./../../obj/modern-pkt-gen")
+    if ret == 0:
+        return "<h2 class='h2'>pkt-gen started<h2>"
+    else:
+        return "pkt-gen error"
 
 
 @app.route("/l2/show/ether")
