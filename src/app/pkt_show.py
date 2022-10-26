@@ -2,6 +2,8 @@ import scapy
 from scapy.layers.inet import IP, TCP
 from scapy.layers.l2 import Ether, ARP, STP, Dot1Q
 
+#from api.api import ether
+
 
 class PktShow:
     def __init__(self):
@@ -15,6 +17,7 @@ class PktShow:
         # json convert
         eth_json = {
             'name': eth.name,
+            'scapy_format': 'Ether()',
             'fields': {
                 "dst": eth.dst,
                 "src": eth.src,

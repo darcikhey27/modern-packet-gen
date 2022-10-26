@@ -1,15 +1,22 @@
 #!/usr/bin/python
 
 from flask import Flask, render_template
+from flask_cors import CORS
 from pkt_show import PktShow
 
+# logging.getLogger('flask_cors').level = logging.DEBUG
 app = Flask(__name__)
-pkt_show = PktShow()
+CORS(app, supports_credentials=True)
 
+pkt_show = PktShow()
 
 @app.route("/")
 def home():
     return render_template("index.html", message="Modern Packet Generator")
+
+@app.route("/test")
+def test():
+    return pkt_show.test()
 
 
 @app.route("/l2/show/ether")
@@ -57,4 +64,4 @@ def get_interfaces_list():
     return "intefacelist not yet implemented"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="10.0.20.61", port=5000, debug=True);

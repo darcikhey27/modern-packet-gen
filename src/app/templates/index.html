@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <title>Modern Packet Generator v1</title>
+  </head>
+  <body class="section">
+    <h2 class="title">Scapy GUI</h2>
+    
+    <div id="app" class="columns">
+
+      <div class="column is-3">
+        <h2 class="title">Recent pkts</h2>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+      </div>
+    
+      <div class="column is-9">
+        <div class="field has-addons">
+          <div class="control">
+            <input type="text" class="input" placeholder="pkt name">
+          </div>
+          <div class="control">
+            <button class="button">Save</button>
+          </div>
+        </div> 
+        <div class="field">
+          <div class="control">
+            <button class="button" id="ethernet" @click="test">Ethernet</button>
+            <button class="button">802.1Q</button>
+            <button class="button">IP</button>
+            <button class="button">IPv6</button>
+            <button class="button">ARP</button>
+            <button class="button">UDP</button>
+            <button class="button">TCP</button>
+            <button class="button">ICMP</button>
+            <button class="button">VXLAN</button>
+            <button class="button">others..</button>
+          </div>
+        </div>
+
+        <div class="control">
+          <input type="text" class="input" placeholder="..." id="pkt">
+        </div>
+        <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+
+      </div>
+    
+    </div>
+      
+    <!-- <script type="module"
+      src="{{ url_for('static', filename='app.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>
