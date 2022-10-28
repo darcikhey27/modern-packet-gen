@@ -11,12 +11,12 @@
     
     <div id="app" class="columns">
 
-      <div class="column is-3">
-        <h2 class="title">Recent pkts</h2>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-      </div>
+{#      <div class="column is-3">#}
+{#        <h2 class="title">Recent pkts</h2>#}
+{#          <textarea name="" id="" cols="30" rows="10"></textarea>#}
+{#      </div>#}
     
-      <div class="column is-9">
+      <div class="column is-12">
         <div class="field has-addons">
           <div class="control">
             <input type="text" class="input" placeholder="pkt name">
@@ -27,15 +27,15 @@
         </div> 
         <div class="field">
           <div class="control">
-            <button class="button" id="ethernet" @click="test">Ethernet</button>
-            <button class="button">802.1Q</button>
-            <button class="button">IP</button>
-            <button class="button">IPv6</button>
-            <button class="button">ARP</button>
-            <button class="button">UDP</button>
-            <button class="button">TCP</button>
-            <button class="button">ICMP</button>
-            <button class="button">VXLAN</button>
+            <button class="button" id="ether" >Ethernet</button>
+            <button class="button" id="dot1q">802.1Q</button>
+            <button class="button" id="ip">IP</button>
+            <button class="button" id="ipv6">IPv6</button>
+            <button class="button" id="arp">ARP</button>
+            <button class="button" id="udp">UDP</button>
+            <button class="button" id="tcp">TCP</button>
+            <button class="button" id="icmp">ICMP</button>
+            <button class="button" id="vxlan">VXLAN</button>
             <button class="button">others..</button>
           </div>
         </div>
@@ -43,7 +43,9 @@
         <div class="control">
           <input type="text" class="input" placeholder="..." id="pkt">
         </div>
-        <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+        <textarea class="textarea" id="pkt-preview"
+            placeholder="Packet preview.." rows="10" cols="10"
+            disabled></textarea>
 
       </div>
     

@@ -10,21 +10,23 @@ CORS(app, supports_credentials=True)
 
 pkt_show = PktShow()
 
+
 @app.route("/")
 def home():
     return render_template("index.html", message="Modern Packet Generator")
+
 
 @app.route("/test")
 def test():
     return pkt_show.test()
 
 
-@app.route("/l2/show/ether")
+@app.route("/ether")
 def ether():
     return pkt_show.eth_to_json()
 
 
-@app.route("/l2/show/arp")
+@app.route("/arp")
 def arp():
     return pkt_show.arp_to_json()
 
@@ -62,6 +64,7 @@ def icmp():
 @app.route("/sys/get/interfaces_list")
 def get_interfaces_list():
     return "intefacelist not yet implemented"
+
 
 if __name__ == "__main__":
     app.run(host="10.0.20.61", port=5000, debug=True);

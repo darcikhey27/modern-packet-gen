@@ -22,7 +22,8 @@ class PktShow:
                 "dst": eth.dst,
                 "src": eth.src,
                 "type": hex(eth.type)
-            }
+            },
+            'show': eth.show(dump=True)
         }
 
         return eth_json
@@ -32,6 +33,7 @@ class PktShow:
 
         arp_json = {
             'name': frame.name,
+            'scapy_format': 'ARP()',
             'fields': {
                 'hwtype': hex(frame.hwtype),
                 'ptype': hex(frame.ptype),
@@ -42,7 +44,8 @@ class PktShow:
                 'psrc': frame.psrc,
                 'hwdst': frame.hwdst,
                 'pdst': frame.pdst
-            }
+            },
+            'show': frame.show(dump=True)
         }
 
         return arp_json

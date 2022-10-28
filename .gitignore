@@ -58,3 +58,4 @@ doorbell.sock
 *.pdb
 
 .vscode
+.idea
